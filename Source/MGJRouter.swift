@@ -76,7 +76,7 @@ public class MGJRouter: NSObject {
                 return
         }
         
-        print(parameters)
+//        print(parameters)
         for (key, value) in parameters {
             if Mirror(reflecting: value).subjectType is NSString.Type {
                 parameters[key] = (value as! NSString).replacingPercentEscapes(using: String.Encoding.utf8.rawValue)
@@ -276,7 +276,7 @@ extension MGJRouter {
         
         parameters[MGJRouterParameterURL] = fromURL
         
-        print(parameters)
+//        print(parameters)
         
         var subRoutes = routes
         guard let pathComponentsArr = pathComponents(fromURL) else {
@@ -285,7 +285,7 @@ extension MGJRouter {
         
         var found = false
         
-        print(routes)
+//        print(routes)
         for pathComponent in pathComponentsArr {
             // 对 key 进行排序，这样可以把 ~ 放到最后
             let subRoutesKeys = subRoutes.allKeys.sorted { (key1, key2) -> Bool in
@@ -341,7 +341,7 @@ extension MGJRouter {
             if (subRoutes["_"] != nil) {
                 parameters["block"] = subRoutes["_"]
             }
-            print(parameters)
+//            print(parameters)
             return parameters
         }
         
@@ -353,7 +353,7 @@ extension MGJRouter {
             parameters["block"] = subRoutes["_"]
         }
         
-        print(parameters)
+//        print(parameters)
         return parameters
     }
     
